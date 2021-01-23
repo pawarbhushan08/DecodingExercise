@@ -7,7 +7,7 @@ a) A single bit is the waveform between two zero-crossings.
 b) A one signal is a rectangle signal of t = 320 microseconds.
 c) A zero signal is a rectangle signal of t = 640 microseconds.
 d) The real-life data might no longer be an ideal rectangle, since it’s been stored on physical media (e.g. a tape drive).
-  
+
 3.The bit-stream that can be extracted from the decoded audio signal can be converted into bytes 
 a) The signal starts with a lead tone of roughly 2.5 seconds (all 1-bits, or 0xff bytes), and ends with an end block of about 0.5 seconds (all 1-bits).
 b) 11 bits are used to encode a single byte – 8 bits for the byte plus one start bit (valued 0) and two stop bits (valued 1).
