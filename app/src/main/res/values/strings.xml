@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">DecodingExercise</string>
+    <string name="decode_file_title">Select the file to be decoded</string>
+    <string name="text_file_one">File_1.wav</string>
+    <string name="text_file_two">File_2.wav</string>
+    <string name="text_file_three">File_3.wav</string>
+    <string name="text_proceed">Proceed</string>
 </resources>

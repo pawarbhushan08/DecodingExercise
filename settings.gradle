@@ -1,2 +1,3 @@
 rootProject.name = "DecodingExercise"
 include ':app'
+include ':library'
