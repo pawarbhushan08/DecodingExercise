@@ -13,7 +13,7 @@ class DecoderViewModel(application: Application) : AndroidViewModel(application)
 
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
 
-    val bitArray = MutableLiveData<List<Int>>()
+    val bitArray = MutableLiveData<String>()
 
     fun launchEncoder(fileName: String) {
         coroutineScope.launch {
@@ -21,15 +21,13 @@ class DecoderViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
-    private fun getPythonHelloWorld(fileName: String): List<Int> {
+    private fun getPythonHelloWorld(fileName: String): String {
         val python = Python.getInstance()
         val pythonFile = python.getModule("fskDecoderScript")
 
         val audioDirPath = getExternalStorage(this.getApplication())
 
-        val bitStreanArray = pythonFile.callAttr("fsk_demodulator", audioDirPath + '/' + fileName)
-        val bitArray = bitStreanArray.toString().replace("[", "").replace("\n", "").replace(" ", "")
-            .replace("]", "").split(",").map { it.toInt() }
-        return bitArray
+        val hexArray = pythonFile.callAttr("fsk_demodulator", audioDirPath + '/' + fileName)
+        return hexArray.toString()
     }
 }

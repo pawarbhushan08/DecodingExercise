@@ -78,7 +78,7 @@ class DecoderFragment : Fragment() {
         output_text.setMovementMethod(ScrollingMovementMethod())
         viewModel.bitArray.observe(viewLifecycleOwner, Observer {
             loadingResults.visibility = View.GONE
-            output_text.text = it.toString()
+            output_text.text = it
         })
     }
 
