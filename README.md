@@ -6,3 +6,6 @@ Prerequisite:
     Link: https://www.python.org/downloads/
     
 This project is created for presenting outputs of a coding task of an Interview.
+
+AFSK Decoding is referred from following block diagram
+
