@@ -11,17 +11,17 @@ import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import com.example.decodingexercise.R
 import com.example.decodingexercise.framework.DecoderViewModel
 import kotlinx.android.synthetic.main.fragment_decoder.*
+import org.koin.android.viewmodel.ext.android.viewModel
 
 
 class DecoderFragment : Fragment() {
 
     val EXTERNAL_STORAGE_REQ_CODE = 10
 
-    private lateinit var viewModel: DecoderViewModel
+    private val viewModel by viewModel<DecoderViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +34,6 @@ class DecoderFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProviders.of(this).get(DecoderViewModel::class.java)
         val permission = this.context?.let {
             ActivityCompat.checkSelfPermission(
                 it,
@@ -69,7 +68,7 @@ class DecoderFragment : Fragment() {
         button_proceed.setOnClickListener {
             loadingResults.visibility = View.VISIBLE
             val fileName = getSelectedFileName()
-            viewModel.launchEncoder(fileName)
+            viewModel.showEncoderResult(fileName)
             observeViewModel()
         }
     }
